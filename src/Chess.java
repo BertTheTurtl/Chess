@@ -11,20 +11,29 @@ public class Chess
         this.white = white;
         this.black = black;
         board = new Piece[][]{
-                {new Rook('w'),new Knight('w'),new Bishop('w'),new Queen('w'),new King('w'),new Bishop('w'),new Knight('w'),new Rook('w')},
+                {new Rook('w'),new Horse('w'),new Bishop('w'),new Queen('w'),new King('w'),new Bishop('w'),new Horse('w'),new Rook('w')},
                 {new Pawn('w'),new Pawn('w'),new Pawn('w'),new Pawn('w'),new Pawn('w'),new Pawn('w'),new Pawn('w'),new Pawn('w')},
                 {new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace()},
                 {new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace()},
                 {new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace()},
                 {new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace(),new EmptySpace()},
                 {new Pawn('b'),new Pawn('b'),new Pawn('b'),new Pawn('b'),new Pawn('b'),new Pawn('b'),new Pawn('b'),new Pawn('b')},
-                {new Rook('b'),new Knight('b'),new Bishop('b'),new Queen('b'),new King('b'),new Bishop('b'),new Knight('b'),new Rook('b')}
+                {new Rook('b'),new Horse('b'),new Bishop('b'),new Queen('b'),new King('b'),new Bishop('b'),new Horse('b'),new Rook('b')}
         };
     }
 
     public int countBlanks()
     {
-
+        int count = 0;
+        for (Piece[] pl : board)
+        {
+            for (Piece pc : pl)
+            {
+                if (pc.equals(new EmptySpace()))
+                    count++;
+            }
+        }
+        return count;
     }
 
     public char markerForPlayer(Player player)
