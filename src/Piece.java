@@ -18,12 +18,36 @@ public abstract class Piece
         return moves(board, row, column).size() > 0;
     }
 
-    public abstract boolean canEat(Chess board, int rowOfPiece, int columnOfPiece, int rowOfTarget, int columnOfTarget);
+    public Piece[][] copyOfBoard(Chess board)
+    {
+        Piece[][] copy = new Piece[8][8];
+        for(int j = 0; j < 8; j++)
+        {
+            for(int k = 0; k < 8; k++)
+            {
+                copy[j][k] = board.getBoard()[j][k];
+            }
+        }
+        return copy;
+    }
 
     //Getter methods
+    public char getColor()
+    {
+        return color;
+    }
 
-    //Setter methods
+    public char getType()
+    {
+        return type;
+    }
 
+    public boolean equals(Object obj)
+    {
+        return toString().equals(obj.toString());
+    }
+
+    //toString()
     public String toString()
     {
         return "" +color +type;
