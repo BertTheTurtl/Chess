@@ -27,7 +27,7 @@ public class Pawn extends Piece
 
             copy = copyOfBoard(board);
             //Move one space forward
-            if (copy[row + 1][column].equals(new EmptySpace()) && row + 1 < 7)
+            if (row + 1 < 7 && copy[row + 1][column].equals(new EmptySpace()))
             {
                 copy[row][column] = new EmptySpace();
                 copy[row + 1][column] = this;
@@ -78,7 +78,7 @@ public class Pawn extends Piece
 
             copy = copyOfBoard(board);
             //Move one space forward
-            if (copy[row - 1][column].equals(new EmptySpace()) && row - 1 > 0)
+            if (row - 1 > 0 && copy[row - 1][column].equals(new EmptySpace()))
             {
                 copy[row][column] = new EmptySpace();
                 copy[row - 1][column] = this;
