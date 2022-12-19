@@ -13,8 +13,8 @@ public class Pawn extends Piece
 
         if (this.getColor() == 'w')
         {
-            Piece[][] copy = copyOfBoard(board);
             //Opening move
+            Piece[][] copy = copyOfBoard(board);
             if (row == 1 && copy[3][column].equals(new EmptySpace()))
             {
                 copy[1][column] = new EmptySpace();
@@ -25,8 +25,8 @@ public class Pawn extends Piece
                 moveList.add(newMove);
             }
 
-            copy = copyOfBoard(board);
             //Move one space forward
+            copy = copyOfBoard(board);
             if (row + 1 < 7 && copy[row + 1][column].equals(new EmptySpace()))
             {
                 copy[row][column] = new EmptySpace();
@@ -39,10 +39,28 @@ public class Pawn extends Piece
 
             /*Eating a piece*/
             //Left
+            copy = copyOfBoard(board);
+            if (row + 1 < 7 && column - 1 >= 0 && !copy[row + 1][column - 1].equals(new EmptySpace()))
+            {
+                copy[row][column] = new EmptySpace();
+                copy[row + 1][column - 1] = this;
 
+                Chess newMove = new Chess(board.getWhite(), board.getBlack());
+                newMove.setBoard(copy);
+                moveList.add(newMove);
+            }
 
             //Right
+            copy = copyOfBoard(board);
+            if (row + 1 < 7 && column + 1 <= 7 && !copy[row + 1][column + 1].equals(new EmptySpace()))
+            {
+                copy[row][column] = new EmptySpace();
+                copy[row + 1][column + 1] = this;
 
+                Chess newMove = new Chess(board.getWhite(), board.getBlack());
+                newMove.setBoard(copy);
+                moveList.add(newMove);
+            }
 
             /*Promotion*/
             //By going forward
@@ -63,9 +81,8 @@ public class Pawn extends Piece
 
         } else if (this.getColor() == 'b')
         {
-            Piece[][] copy = super.copyOfBoard(board);
-
             //Opening move
+            Piece[][] copy = super.copyOfBoard(board);
             if (row == 6 && copy[4][column].equals(new EmptySpace()))
             {
                 copy[6][column] = new EmptySpace();
@@ -76,8 +93,8 @@ public class Pawn extends Piece
                 moveList.add(newMove);
             }
 
-            copy = copyOfBoard(board);
             //Move one space forward
+            copy = copyOfBoard(board);
             if (row - 1 > 0 && copy[row - 1][column].equals(new EmptySpace()))
             {
                 copy[row][column] = new EmptySpace();
@@ -90,10 +107,28 @@ public class Pawn extends Piece
 
             /*Eating a piece*/
             //Left
+            copy = copyOfBoard(board);
+            if (row - 1 > 0 && column + 1 <= 7 && !copy[row - 1][column + 1].equals(new EmptySpace()))
+            {
+                copy[row][column] = new EmptySpace();
+                copy[row - 1][column + 1] = this;
 
+                Chess newMove = new Chess(board.getWhite(), board.getBlack());
+                newMove.setBoard(copy);
+                moveList.add(newMove);
+            }
 
             //Right
+            copy = copyOfBoard(board);
+            if (row - 1 > 0 && column - 1 >= 0 && !copy[row - 1][column - 1].equals(new EmptySpace()))
+            {
+                copy[row][column] = new EmptySpace();
+                copy[row - 1][column - 1] = this;
 
+                Chess newMove = new Chess(board.getWhite(), board.getBlack());
+                newMove.setBoard(copy);
+                moveList.add(newMove);
+            }
 
             /*Promotion*/
             //By going forward
