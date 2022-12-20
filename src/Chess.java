@@ -5,6 +5,8 @@ public class Chess
     private Piece[][] board;
     private Player white;
     private Player black;
+    private boolean whiteCheck;
+    private boolean blackCheck;
 
     public Chess(Player white, Player black)
     {
@@ -69,6 +71,11 @@ public class Chess
 
     public ArrayList<Chess> possibleMoves(Player player)
     {
+        /*CHECK IF THE KING IS IN DANGER*/
+
+
+        /*En passant*/
+
 
     }
 

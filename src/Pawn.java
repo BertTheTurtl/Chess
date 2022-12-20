@@ -40,7 +40,7 @@ public class Pawn extends Piece
             /*Eating a piece*/
             //Left
             copy = copyOfBoard(board);
-            if (row + 1 < 7 && column - 1 >= 0 && !copy[row + 1][column - 1].equals(new EmptySpace()))
+            if (row + 1 < 7 && column - 1 >= 0 && !copy[row + 1][column - 1].equals(new EmptySpace()) && copy[row + 1][column - 1].getColor() == 'b')
             {
                 copy[row][column] = new EmptySpace();
                 copy[row + 1][column - 1] = this;
@@ -52,7 +52,7 @@ public class Pawn extends Piece
 
             //Right
             copy = copyOfBoard(board);
-            if (row + 1 < 7 && column + 1 <= 7 && !copy[row + 1][column + 1].equals(new EmptySpace()))
+            if (row + 1 < 7 && column + 1 <= 7 && !copy[row + 1][column + 1].equals(new EmptySpace()) && copy[row + 1][column + 1].getColor() == 'b')
             {
                 copy[row][column] = new EmptySpace();
                 copy[row + 1][column + 1] = this;
@@ -70,13 +70,6 @@ public class Pawn extends Piece
 
 
             //By eating right
-
-
-            /*En passant*/
-            //Left
-
-
-            //Right
 
 
         } else if (this.getColor() == 'b')
@@ -108,7 +101,7 @@ public class Pawn extends Piece
             /*Eating a piece*/
             //Left
             copy = copyOfBoard(board);
-            if (row - 1 > 0 && column + 1 <= 7 && !copy[row - 1][column + 1].equals(new EmptySpace()))
+            if (row - 1 > 0 && column + 1 <= 7 && !copy[row - 1][column + 1].equals(new EmptySpace()) && copy[row - 1][column + 1].getColor() == 'w')
             {
                 copy[row][column] = new EmptySpace();
                 copy[row - 1][column + 1] = this;
@@ -120,7 +113,7 @@ public class Pawn extends Piece
 
             //Right
             copy = copyOfBoard(board);
-            if (row - 1 > 0 && column - 1 >= 0 && !copy[row - 1][column - 1].equals(new EmptySpace()))
+            if (row - 1 > 0 && column - 1 >= 0 && !copy[row - 1][column - 1].equals(new EmptySpace()) && copy[row - 1][column - 1].getColor() == 'w')
             {
                 copy[row][column] = new EmptySpace();
                 copy[row - 1][column - 1] = this;
@@ -138,13 +131,6 @@ public class Pawn extends Piece
 
 
             //By eating right
-
-
-            /*En passant*/
-            //Left
-
-
-            //Right
 
 
         }
