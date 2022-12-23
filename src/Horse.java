@@ -27,6 +27,7 @@ public class Horse extends Piece
             {
 
             }
+
             /*copy[row][column] = new EmptySpace();
             copy[][] = this;
 

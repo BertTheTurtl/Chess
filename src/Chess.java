@@ -77,6 +77,9 @@ public class Chess
         /*En passant*/
 
 
+        //For checking the king
+        //Arrays.asList(yourArray).contains(yourValue)
+
     }
 
     //Getter methods
